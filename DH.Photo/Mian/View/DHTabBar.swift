@@ -33,7 +33,6 @@ class DHTabBar: UITabBar {
     {
     //如果tabbar的代理实现了对应的代理方法，那么就调用代理的该方法
     if self.delegate != nil {
-    
         self.mydelegate?.tabBarPlusBtnClick!(tabbar: self)
         
         }
@@ -46,11 +45,15 @@ class DHTabBar: UITabBar {
     //系统自带的按钮类型是UITabBarButton，找出这些类型的按钮，然后重新排布位置，空出中间的位置
         //调整发布按钮的中线点Y值
 
-    let  barBtn = NSClassFromString("UITabBarButton") as? UIBarButtonItem.Type
-        self.plusbtn.centerX = self.centerX
-        self.plusbtn.centerY = self.SizeHeight/2-0.2*10
+    let  Barclass = NSClassFromString("UITabBarButton")
+        
         self.plusbtn.Size = CGSize.init(width: (self.plusbtn.currentBackgroundImage?.size.width)!, height: (self.plusbtn.currentBackgroundImage?.size.height)!)
-    
+
+        self.plusbtn.centerX = self.centerX
+        print(self.centerX,self.centerX)
+        
+        self.plusbtn.centerY = self.SizeHeight/2-2*10
+        print(self.plusbtn.centerY)
         
         let label = UILabel()
         label.text = "发布";
@@ -63,7 +66,7 @@ class DHTabBar: UITabBar {
         
         var  btnIndex = 0;
         for btn in self.subviews {//遍历tabbar的子控件
-            if btn.isKind(of: barBtn!) {//如果是系统的UITabBarButton，那么就调整子控件位置，空出中间位置
+            if btn.isKind(of: Barclass!) {//如果是系统的UITabBarButton，那么就调整子控件位置，空出中间位置
                 //每一个按钮的宽度==tabbar的五分之一
                 btn.SizeWidth = self.SizeWidth / 5;
                 

@@ -17,6 +17,10 @@
 		A483737020071080003931AB /* DHTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A483736F20071080003931AB /* DHTabBar.swift */; };
 		A4837373200712FF003931AB /* ExtensionImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4837372200712FF003931AB /* ExtensionImage.swift */; };
 		A4B06053200DE67C00A2E271 /* ExtensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B06052200DE67C00A2E271 /* ExtensionUIView.swift */; };
+		A4B06059200EF52500A2E271 /* LockPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B06058200EF52500A2E271 /* LockPhotoViewController.swift */; };
+		A4B0605C200F124E00A2E271 /* ListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0605A200F124E00A2E271 /* ListViewCell.swift */; };
+		A4B0605D200F124E00A2E271 /* ListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A4B0605B200F124E00A2E271 /* ListViewCell.xib */; };
+		A4B0605F200F150E00A2E271 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B0605E200F150E00A2E271 /* ListModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		A483736F20071080003931AB /* DHTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DHTabBar.swift; sourceTree = "<group>"; };
 		A4837372200712FF003931AB /* ExtensionImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionImage.swift; sourceTree = "<group>"; };
 		A4B06052200DE67C00A2E271 /* ExtensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIView.swift; sourceTree = "<group>"; };
+		A4B06058200EF52500A2E271 /* LockPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockPhotoViewController.swift; sourceTree = "<group>"; };
+		A4B0605A200F124E00A2E271 /* ListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewCell.swift; sourceTree = "<group>"; };
+		A4B0605B200F124E00A2E271 /* ListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListViewCell.xib; sourceTree = "<group>"; };
+		A4B0605E200F150E00A2E271 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,7 @@
 		A48289181FEE319700ADD60A /* DH.Photo */ = {
 			isa = PBXGroup;
 			children = (
+				A4B06054200EF4B200A2E271 /* LockPhoto */,
 				A4837371200712EB003931AB /* Extension */,
 				A483736C20071033003931AB /* Mian */,
 				A48289191FEE319700ADD60A /* AppDelegate.swift */,
@@ -164,6 +173,41 @@
 				A4B06052200DE67C00A2E271 /* ExtensionUIView.swift */,
 			);
 			name = Extension;
+			sourceTree = "<group>";
+		};
+		A4B06054200EF4B200A2E271 /* LockPhoto */ = {
+			isa = PBXGroup;
+			children = (
+				A4B06057200EF50000A2E271 /* Model */,
+				A4B06056200EF4F700A2E271 /* View */,
+				A4B06055200EF4E400A2E271 /* Controller */,
+			);
+			path = LockPhoto;
+			sourceTree = "<group>";
+		};
+		A4B06055200EF4E400A2E271 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A4B06058200EF52500A2E271 /* LockPhotoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A4B06056200EF4F700A2E271 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A4B0605A200F124E00A2E271 /* ListViewCell.swift */,
+				A4B0605B200F124E00A2E271 /* ListViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A4B06057200EF50000A2E271 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A4B0605E200F150E00A2E271 /* ListModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B0605D200F124E00A2E271 /* ListViewCell.xib in Resources */,
 				A48289261FEE319800ADD60A /* LaunchScreen.storyboard in Resources */,
 				A48289231FEE319800ADD60A /* Assets.xcassets in Resources */,
 				A48289211FEE319800ADD60A /* Main.storyboard in Resources */,
@@ -300,11 +345,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4B06059200EF52500A2E271 /* LockPhotoViewController.swift in Sources */,
 				A482891A1FEE319700ADD60A /* AppDelegate.swift in Sources */,
 				A483737020071080003931AB /* DHTabBar.swift in Sources */,
 				A483736B2006F938003931AB /* DHMainViewController.swift in Sources */,
 				A4837373200712FF003931AB /* ExtensionImage.swift in Sources */,
 				A4B06053200DE67C00A2E271 /* ExtensionUIView.swift in Sources */,
+				A4B0605C200F124E00A2E271 /* ListViewCell.swift in Sources */,
+				A4B0605F200F150E00A2E271 /* ListModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,7 +521,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = U9XREJV48D;
 				INFOPLIST_FILE = DH.Photo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DH-Photo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -491,7 +539,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DH.Photo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DH-Photo";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -63,7 +63,7 @@
         <!--照片-->
         <scene sceneID="lq2-eV-z4e">
             <objects>
-                <viewController id="7zs-ri-h9C" sceneMemberID="viewController">
+                <viewController id="7zs-ri-h9C" customClass="LockPhotoViewController" customModule="DH_Photo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fKa-PO-RyN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
