@@ -52,7 +52,7 @@
                 <outlet property="DocumentNameLab" destination="dQ7-HN-P8m" id="YUq-2O-BDI"/>
                 <outlet property="PhtotoCountLab" destination="2Fv-6j-97J" id="gHL-cr-UTv"/>
             </connections>
-            <point key="canvasLocation" x="9" y="-13"/>
+            <point key="canvasLocation" x="-227" y="33"/>
         </tableViewCell>
     </objects>
     <resources>

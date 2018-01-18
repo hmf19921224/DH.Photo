@@ -27,8 +27,22 @@ class ListViewCell: UITableViewCell {
         cont?.strokePath()
 
     }
+    //自定义左边的删除图片
     
-  
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        for control in self.subviews{
+//            if control.isKind(of: NSClassFromString("UITableViewCellEditControl")!){
+//                for v in control.subviews{
+//                    if v.isKind(of: UIImageView.self) {
+//                      let img = v as?UIImageView
+//                        img?.image = UIImage.init(named: "delete")
+//                       
+//                    }
+//                }
+//            }
+//        }
+//    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

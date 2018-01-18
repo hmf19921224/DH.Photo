@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tb_delete.png",
+      "filename" : "up.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tb_delete@2x.png",
+      "filename" : "up@2x.png",
       "scale" : "2x"
     },
     {

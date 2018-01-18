@@ -125,7 +125,32 @@ extension UIView{
         
     }
     
-  
+    var MaxX:CGFloat {
+        
+        set{
+            
+        }
+        
+        get{
+            
+            return self.originX + self.SizeWidth
+            
+        }
+        
+    }
+    var MaxY:CGFloat {
+        
+        set{
+            
+        }
+        
+        get{
+            
+            return self.originY + self.SizeHeight
+            
+        }
+        
+    }
     
   
     
