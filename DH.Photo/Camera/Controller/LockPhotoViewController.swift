@@ -192,8 +192,11 @@ class LockPhotoViewController: UIViewController,UITableViewDelegate,UITableViewD
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
+        self.hidesBottomBarWhenPushed = true
+        let DetailVC = SelectPhotoViewController()
+        DetailVC.title = DataList[indexPath.row].DocumentName
+        self.navigationController?.pushViewController(DetailVC, animated: true)
+
     }
 
 }
