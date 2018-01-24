@@ -16,6 +16,7 @@ class LockPhotoViewController: UIViewController,UITableViewDelegate,UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "照片"
+        
     let LeftBtn = UIButton.init(type: UIButtonType.custom)
         LeftBtn.addTarget(self, action: #selector(Newdocument), for: UIControlEvents.touchUpInside)
         LeftBtn.setBackgroundImage(UIImage.init(named: "add"), for: UIControlState.normal)

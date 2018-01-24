@@ -21,9 +21,9 @@ class PhotoShowListCell: UICollectionViewCell {
     open override var isSelected: Bool {
         didSet{
             if isSelected {
-                selectedIcon.image = UIImage(named: "success")
-            }else{
                 selectedIcon.image = UIImage(named: "success_fill")
+            }else{
+                selectedIcon.image = UIImage(named: "success")
             }
         }
     }

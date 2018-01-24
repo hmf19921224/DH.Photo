@@ -9,22 +9,45 @@
 import UIKit
 import Photos
 
+
 let ItemEdge:CGFloat = 5.0
-let ItemWidth:CGFloat = (UIScreen.main.bounds.width - CGFloat(3) * ItemEdge)/4
+let ItemSPace:CGFloat = 5.0
+
+
+let ItemWidth:CGFloat = (UIScreen.main.bounds.width - CGFloat(5) * ItemEdge)/4
 class SelectPhotoViewController: UIViewController {
     var PhotoCollectionView:UICollectionView!
-    
+    var imageManager:PHCachingImageManager!
+
     var dataList:[PHAsset] = []
+    
+
+    var assetGridThumbnailSize:CGSize!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //根据单元格的尺寸计算我们需要的缩略图大小
+        let scale = UIScreen.main.scale
+
+        let cellSize = (self.PhotoCollectionView.collectionViewLayout as!
+            UICollectionViewFlowLayout).itemSize
+        
+        assetGridThumbnailSize = CGSize(width: cellSize.width*scale ,
+                                        height: cellSize.height*scale)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
+        self.navigationController?.navigationBar.isTranslucent = false
+        self.imageManager = PHCachingImageManager()
 
-        // Do any additional setup after loading the view.
     }
     func initUI(){
+        print(self.view.SizeHeight)
         self.view.backgroundColor = UIColor.white
-        let costomBar = UIView.init(frame: CGRect.init(x: 0, y: self.view.SizeHeight-49, width: self.view.SizeWidth, height: 49))
+        let costomBar = UIView.init(frame: CGRect.init(x: 0, y: self.view.SizeHeight-49-64, width: self.view.SizeWidth, height: 49))
         self.view.addSubview(costomBar)
         let lab = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: costomBar.SizeWidth, height: 1))
         lab.backgroundColor = UIColor.lightGray
@@ -62,9 +85,13 @@ class SelectPhotoViewController: UIViewController {
         
         let collectionlaout = UICollectionViewFlowLayout()
         collectionlaout.itemSize = CGSize.init(width: ItemWidth, height: ItemWidth)
-        collectionlaout.minimumLineSpacing = ItemEdge
-        collectionlaout.minimumInteritemSpacing = ItemEdge
-        PhotoCollectionView = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.SizeWidth, height: self.view.SizeHeight-49), collectionViewLayout: collectionlaout)
+        collectionlaout.minimumLineSpacing = ItemSPace
+        collectionlaout.minimumInteritemSpacing = ItemSPace
+        collectionlaout.sectionInset = UIEdgeInsetsMake(ItemEdge, ItemEdge, ItemEdge, ItemEdge)
+        PhotoCollectionView = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.SizeWidth, height: self.view.SizeHeight-49-64), collectionViewLayout: collectionlaout)
+        PhotoCollectionView.register(NormalCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        PhotoCollectionView.delegate = self
+        PhotoCollectionView.dataSource = self
         PhotoCollectionView.backgroundColor = UIColor.white
         self.view.addSubview(PhotoCollectionView)
         
@@ -107,11 +134,10 @@ class SelectPhotoViewController: UIViewController {
             
             let vc =  AllPhotoViewController()
             //设置选择完毕后的回调
-
             vc.completeHandler = { (PHasset) in
                 
                 self.dataList = PHasset
-                
+                print("count\(self.dataList.count)")
                 self.PhotoCollectionView.reloadData()
             }
             //将图片选择视图控制器外添加个导航控制器，并显示
@@ -146,36 +172,7 @@ class SelectPhotoViewController: UIViewController {
         
     }
     
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//    }
-    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        
-        return true
-    }
-   
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        
-        let  cell = collectionView.cellForItem(at: indexPath)
-        //设置(Highlight)高亮下的颜色
-        
-        if #available(iOS 11.0, *) {
-            cell?.backgroundColor = UIColor.init(named: "f2f2f2")
-        } else {
-            // Fallback on earlier versions
-        }
-    }
 
-    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
-        let  cell = collectionView.cellForItem(at: indexPath)
-        //设置(Nomal)正常状态下的颜色
-        cell?.backgroundColor = UIColor.white
-
-    }
    
     
   
@@ -185,15 +182,53 @@ class SelectPhotoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension SelectPhotoViewController:UICollectionViewDataSource,UICollectionViewDelegate{
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return dataList.count
     }
-    */
+    
+    // 获取单元格
+    func collectionView(_ collectionView: UICollectionView,cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //获取storyboard里设计的单元格，不需要再动态添加界面元素
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",for: indexPath) as! NormalCollectionViewCell
+        let asset = self.dataList[indexPath.row]
+        //获取缩略图
+        self.imageManager.requestImage(for: asset, targetSize: assetGridThumbnailSize,
+                                       contentMode: .aspectFill, options: nil) {
+                                        (image, nfo) in
+                                cell.PhotoImageview.image = image
+        }
+        
+        return cell
+    }
+    
+    //单元格选中响应
+  
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+      let scrollview = ScrollViewController()
+        
+        scrollview.dataList = self.dataList
+        scrollview.JumpIndex = indexPath.row
+        self.navigationController?.pushViewController(scrollview, animated: true)
+        
 
+        
+    }
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+
+        
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+     
+        
+    }
+    
 }

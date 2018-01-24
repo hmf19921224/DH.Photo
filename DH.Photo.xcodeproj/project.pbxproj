@@ -10,6 +10,8 @@
 		7CA2D7D6901E8FED17FF7B07 /* Pods_DH_Photo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 382AA8ED800DE47AA0BE4EA6 /* Pods_DH_Photo.framework */; };
 		A461620F201188690007244B /* AllPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A461620E201188690007244B /* AllPhotoViewController.swift */; };
 		A4616211201591250007244B /* HGImageCompleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4616210201591250007244B /* HGImageCompleteButton.swift */; };
+		A46162172017058C0007244B /* NormalCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46162162017058C0007244B /* NormalCollectionViewCell.swift */; };
+		A4616219201714330007244B /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4616218201714330007244B /* ScrollViewController.swift */; };
 		A482891A1FEE319700ADD60A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A48289191FEE319700ADD60A /* AppDelegate.swift */; };
 		A48289211FEE319800ADD60A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A482891F1FEE319800ADD60A /* Main.storyboard */; };
 		A48289231FEE319800ADD60A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A48289221FEE319800ADD60A /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		382AA8ED800DE47AA0BE4EA6 /* Pods_DH_Photo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DH_Photo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A461620E201188690007244B /* AllPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllPhotoViewController.swift; sourceTree = "<group>"; };
 		A4616210201591250007244B /* HGImageCompleteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HGImageCompleteButton.swift; sourceTree = "<group>"; };
+		A46162162017058C0007244B /* NormalCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalCollectionViewCell.swift; sourceTree = "<group>"; };
+		A4616218201714330007244B /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		A48289161FEE319700ADD60A /* DH.Photo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DH.Photo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48289191FEE319700ADD60A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A48289201FEE319800ADD60A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -225,6 +229,7 @@
 				A4B06058200EF52500A2E271 /* LockPhotoViewController.swift */,
 				A4B0606020108B8300A2E271 /* SelectPhotoViewController.swift */,
 				A461620E201188690007244B /* AllPhotoViewController.swift */,
+				A4616218201714330007244B /* ScrollViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 				A4B0605B200F124E00A2E271 /* ListViewCell.xib */,
 				A4B0606220117C8E00A2E271 /* PhotoShowListCell.swift */,
 				A4B0606320117C8E00A2E271 /* PhotoShowListCell.xib */,
+				A46162162017058C0007244B /* NormalCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -424,15 +430,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-DH.Photo/Pods-DH.Photo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/LQGWaterLayout/LQGWaterLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
-				"${BUILT_PRODUCTS_DIR}/QGPhotoKit/QGPhotoKit.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LQGWaterLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QGPhotoKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -447,7 +451,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4B06059200EF52500A2E271 /* LockPhotoViewController.swift in Sources */,
+				A46162172017058C0007244B /* NormalCollectionViewCell.swift in Sources */,
 				A482891A1FEE319700ADD60A /* AppDelegate.swift in Sources */,
+				A4616219201714330007244B /* ScrollViewController.swift in Sources */,
 				A483737020071080003931AB /* DHTabBar.swift in Sources */,
 				A461620F201188690007244B /* AllPhotoViewController.swift in Sources */,
 				A483736B2006F938003931AB /* DHMainViewController.swift in Sources */,
@@ -560,7 +566,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -611,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -627,7 +633,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = U9XREJV48D;
 				INFOPLIST_FILE = DH.Photo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DH-Photo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -646,7 +652,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = DH.Photo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DH-Photo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -728,7 +734,7 @@
 				A482893F1FEE319800ADD60A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		A48289401FEE319800ADD60A /* Build configuration list for PBXNativeTarget "DH.Photo" */ = {
 			isa = XCConfigurationList;
@@ -737,7 +743,7 @@
 				A48289421FEE319800ADD60A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		A48289431FEE319800ADD60A /* Build configuration list for PBXNativeTarget "DH.PhotoTests" */ = {
 			isa = XCConfigurationList;
@@ -746,7 +752,7 @@
 				A48289451FEE319800ADD60A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		A48289461FEE319800ADD60A /* Build configuration list for PBXNativeTarget "DH.PhotoUITests" */ = {
 			isa = XCConfigurationList;
@@ -755,7 +761,7 @@
 				A48289481FEE319800ADD60A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

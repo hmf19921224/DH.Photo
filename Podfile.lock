@@ -1,3 +1,17 @@
-PODFILE CHECKSUM: 84b08b65ced876d51c0e7065e6ae36f3d18050f5
+PODS:
+  - ImageSlideshow (1.4.1):
+    - ImageSlideshow/Core (= 1.4.1)
+  - ImageSlideshow/Core (1.4.1)
+  - SnapKit (4.0.0)
+
+DEPENDENCIES:
+  - ImageSlideshow (~> 1.4.1)
+  - SnapKit (~> 4.0.0)
+
+SPEC CHECKSUMS:
+  ImageSlideshow: 1bb0e610e28a71e8936d57265d882f61714a470b
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+
+PODFILE CHECKSUM: 4b07bc104b119f4df36a4bbc04b41bfad7b728f9
 
 COCOAPODS: 1.4.0

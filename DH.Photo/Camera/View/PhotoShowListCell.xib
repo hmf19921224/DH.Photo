@@ -22,8 +22,8 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H5d-oU-DtK">
                         <rect key="frame" x="0.0" y="0.0" width="177" height="99"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success" highlightedImage="success_fill" translatesAutoresizingMaskIntoConstraints="NO" id="CTf-v4-kci">
-                        <rect key="frame" x="137" y="5" width="35" height="35"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="success" translatesAutoresizingMaskIntoConstraints="NO" id="CTf-v4-kci">
+                        <rect key="frame" x="142" y="0.0" width="35" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="35" id="Bex-KQ-XSb"/>
                             <constraint firstAttribute="height" constant="35" id="Exa-Ke-Mz5"/>
@@ -42,8 +42,8 @@
                 <constraint firstItem="H5d-oU-DtK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Pz5-wr-pRC"/>
                 <constraint firstItem="H5d-oU-DtK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RNP-3X-j0v"/>
                 <constraint firstAttribute="bottom" secondItem="H5d-oU-DtK" secondAttribute="bottom" id="lCm-7i-OFm"/>
-                <constraint firstItem="CTf-v4-kci" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="mvp-1D-wN5"/>
-                <constraint firstAttribute="trailing" secondItem="CTf-v4-kci" secondAttribute="trailing" constant="5" id="t34-mu-Eh2"/>
+                <constraint firstItem="CTf-v4-kci" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="mvp-1D-wN5"/>
+                <constraint firstAttribute="trailing" secondItem="CTf-v4-kci" secondAttribute="trailing" id="t34-mu-Eh2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="177" height="99"/>
@@ -56,6 +56,5 @@
     </objects>
     <resources>
         <image name="success" width="32" height="32"/>
-        <image name="success_fill" width="32" height="32"/>
     </resources>
 </document>
