@@ -12,7 +12,7 @@ import SnapKit
 class ScrollViewController: UIViewController,UIScrollViewDelegate {
     lazy var offset:CGFloat = {
         
-      return  self.PhotoScrollView.contentOffset.x
+      return  CGFloat(self.JumpIndex) * self.view.SizeWidth
     }()
     var PhotoScrollView:UIScrollView!
     var dataList:[PHAsset] = []
@@ -43,7 +43,7 @@ class ScrollViewController: UIViewController,UIScrollViewDelegate {
             make.height.equalTo(self.navigationController!.toolbar)
         }
         titlepage.addTarget(self, action: #selector(setPagetitle), for: UIControlEvents.touchDragInside)
-        title = String(JumpIndex)+"/"+String(dataList.count)
+        title = String(JumpIndex+1)+"/"+String(dataList.count)
         self.view.backgroundColor = UIColor.black
         PhotoScrollView = UIScrollView()
         PhotoScrollView.delegate = self
@@ -127,6 +127,19 @@ class ScrollViewController: UIViewController,UIScrollViewDelegate {
         
         
     }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            
+            self.scrollViewDidEndDecelerating(scrollView)
+        }
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        print("\(offset)---\(scrollView.contentOffset.x)---\(self.view.SizeWidth)")
+        
+        let  swipe = Int((scrollView.contentOffset.x - offset)/self.view.SizeWidth)
+        self.title = String(JumpIndex+1+swipe)+"/"+String(dataList.count)
+    }
     
     override var prefersStatusBarHidden: Bool {
         
@@ -153,11 +166,5 @@ class ScrollViewController: UIViewController,UIScrollViewDelegate {
     }
 }
    
-    func scrollViewDidEndDecelerating( scrollview : UIScrollView){
-    
-    let  swipe = Int((scrollview.contentOffset.x - offset)/self.view.SizeWidth)
-    
-    self.title = String(JumpIndex+swipe)+"/"+String(dataList.count)
-    
-    }
+
 }

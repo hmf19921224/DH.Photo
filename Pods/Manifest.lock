@@ -3,15 +3,39 @@ PODS:
     - ImageSlideshow/Core (= 1.4.1)
   - ImageSlideshow/Core (1.4.1)
   - SnapKit (4.0.0)
+  - UMengUShare/Core (6.4.8.1):
+    - UMengUShare/Network
+  - UMengUShare/Network (6.4.8.1)
+  - UMengUShare/Social/QQ (6.4.8.1):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedQQ (6.4.8.1):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedSina (6.4.8.1):
+    - UMengUShare/Core
+  - UMengUShare/Social/ReducedWeChat (6.4.8.1):
+    - UMengUShare/Core
+  - UMengUShare/Social/WeChat (6.4.8.1):
+    - UMengUShare/Core
+    - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/UI (6.4.8.1):
+    - UMengUShare/Core
 
 DEPENDENCIES:
   - ImageSlideshow (~> 1.4.1)
   - SnapKit (~> 4.0.0)
+  - UMengUShare/Social/QQ
+  - UMengUShare/Social/ReducedQQ
+  - UMengUShare/Social/ReducedSina
+  - UMengUShare/Social/ReducedWeChat
+  - UMengUShare/Social/WeChat
+  - UMengUShare/UI
 
 SPEC CHECKSUMS:
   ImageSlideshow: 1bb0e610e28a71e8936d57265d882f61714a470b
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  UMengUShare: 9e2d22f32aeaf09702ca833ec530895aab995c4f
 
-PODFILE CHECKSUM: 4b07bc104b119f4df36a4bbc04b41bfad7b728f9
+PODFILE CHECKSUM: 33bc2026c429e8a4dd64e97ac032e698e67e5134
 
 COCOAPODS: 1.4.0

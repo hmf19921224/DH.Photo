@@ -183,20 +183,16 @@ class AllPhotoViewController: UIViewController {
         sender.isSelected = !sender.isSelected
         for indexPath in self.collectionView.indexPathsForVisibleItems{
             
-            if sender.isSelected {
-                
-              self.collectionView(collectionView, didSelectItemAt: indexPath)
-            }else
-            {
-                
-                self.collectionView(collectionView, didDeselectItemAt: indexPath)
-                
-            }
+          let cell = self.collectionView.cellForItem(at: indexPath)
+            
+            cell?.isSelected = sender.isSelected
+            self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition:UICollectionViewScrollPosition.bottom)
+
             
         }
         let count = self.selectedCount()
+        print("count\(count)")
         
-        sender.isSelected = !sender.isSelected
         completeButton.num = count
         //改变完成按钮数字，并播放动画
         if count == 0{
@@ -256,6 +252,7 @@ extension AllPhotoViewController:UICollectionViewDataSource,UICollectionViewDele
     
     //单元格选中响应
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("我走了")
         if let cell = collectionView.cellForItem(at: indexPath)
             as? PhotoShowListCell{
             //获取选中的数量

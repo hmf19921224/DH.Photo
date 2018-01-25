@@ -18,8 +18,11 @@ class PhotoShowListCell: UICollectionViewCell {
         PhotoImageView.clipsToBounds = true
         // Initialization code
     }
+  
+    
     open override var isSelected: Bool {
         didSet{
+            print(isSelected)
             if isSelected {
                 selectedIcon.image = UIImage(named: "success_fill")
             }else{

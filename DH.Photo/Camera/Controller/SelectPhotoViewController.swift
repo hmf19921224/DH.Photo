@@ -9,7 +9,6 @@
 import UIKit
 import Photos
 
-
 let ItemEdge:CGFloat = 5.0
 let ItemSPace:CGFloat = 5.0
 
@@ -36,7 +35,6 @@ class SelectPhotoViewController: UIViewController {
                                         height: cellSize.height*scale)
         
     }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
@@ -90,6 +88,8 @@ class SelectPhotoViewController: UIViewController {
         collectionlaout.sectionInset = UIEdgeInsetsMake(ItemEdge, ItemEdge, ItemEdge, ItemEdge)
         PhotoCollectionView = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: self.view.SizeWidth, height: self.view.SizeHeight-49-64), collectionViewLayout: collectionlaout)
         PhotoCollectionView.register(NormalCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
+        PhotoCollectionView.allowsMultipleSelection = false
         PhotoCollectionView.delegate = self
         PhotoCollectionView.dataSource = self
         PhotoCollectionView.backgroundColor = UIColor.white
@@ -143,7 +143,6 @@ class SelectPhotoViewController: UIViewController {
             //将图片选择视图控制器外添加个导航控制器，并显示
             self.navigationController?.pushViewController(vc, animated: true)
             
-            
         }))
         
         alerVc.addAction(UIAlertAction.init(title: "从iTunes导入", style: UIAlertActionStyle.default, handler: { (Action) in
@@ -171,9 +170,6 @@ class SelectPhotoViewController: UIViewController {
     @objc func deleteDocument(){
         
     }
-    
-
-   
     
   
 
@@ -212,7 +208,6 @@ extension SelectPhotoViewController:UICollectionViewDataSource,UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
       let scrollview = ScrollViewController()
-        
         scrollview.dataList = self.dataList
         scrollview.JumpIndex = indexPath.row
         self.navigationController?.pushViewController(scrollview, animated: true)
@@ -224,7 +219,7 @@ extension SelectPhotoViewController:UICollectionViewDataSource,UICollectionViewD
 
         
         
-    }
+        }
     
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
      
